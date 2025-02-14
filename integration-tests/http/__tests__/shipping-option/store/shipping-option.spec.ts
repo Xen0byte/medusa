@@ -1,10 +1,5 @@
 import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
 import {
-  IFulfillmentModuleService,
-  IRegionModuleService,
-} from "@medusajs/types"
-import { ContainerRegistrationKeys, Modules } from "@medusajs/utils"
-import {
   createAdminUser,
   generatePublishableKey,
   generateStoreHeaders,
@@ -20,9 +15,6 @@ medusaIntegrationTestRunner({
   testSuite: ({ dbConnection, getContainer, api }) => {
     describe("Store: Shipping Option API", () => {
       let appContainer
-      let fulfillmentModule: IFulfillmentModuleService
-      let regionService: IRegionModuleService
-
       let salesChannel
       let region
       let regionTwo
@@ -36,8 +28,6 @@ medusaIntegrationTestRunner({
 
       beforeAll(async () => {
         appContainer = getContainer()
-        fulfillmentModule = appContainer.resolve(Modules.FULFILLMENT)
-        regionService = appContainer.resolve(Modules.REGION)
       })
 
       beforeEach(async () => {
@@ -45,31 +35,35 @@ medusaIntegrationTestRunner({
         storeHeaders = generateStoreHeaders({ publishableKey })
 
         await createAdminUser(dbConnection, adminHeaders, appContainer)
-        const remoteLinkService = appContainer.resolve(
-          ContainerRegistrationKeys.REMOTE_LINK
-        )
 
-        region = await regionService.createRegions({
-          name: "Test region",
-          countries: ["US"],
-          currency_code: "usd",
-        })
+        region = (
+          await api.post(
+            "/admin/regions",
+            { name: "US", currency_code: "usd", countries: ["US"] },
+            adminHeaders
+          )
+        ).data.region
 
-        regionTwo = await regionService.createRegions({
-          name: "Test region two",
-          countries: ["DK"],
-          currency_code: "dkk",
-        })
+        regionTwo = (
+          await api.post(
+            "/admin/regions",
+            {
+              name: "Test region two",
+              currency_code: "dkk",
+              countries: ["DK"],
+              is_tax_inclusive: true,
+            },
+            adminHeaders
+          )
+        ).data.region
 
-        await api.post(
-          "/admin/price-preferences",
-          {
-            attribute: "region_id",
-            value: regionTwo.id,
-            is_tax_inclusive: true,
-          },
-          adminHeaders
-        )
+        shippingProfile = (
+          await api.post(
+            `/admin/shipping-profiles`,
+            { name: "Test", type: "default" },
+            adminHeaders
+          )
+        ).data.shipping_profile
 
         salesChannel = (
           await api.post(
@@ -88,6 +82,7 @@ medusaIntegrationTestRunner({
                 { title: "size", values: ["large", "small"] },
                 { title: "color", values: ["green"] },
               ],
+              shipping_profile_id: shippingProfile.id,
               variants: [
                 {
                   title: "Test variant",
@@ -116,22 +111,31 @@ medusaIntegrationTestRunner({
         stockLocation = (
           await api.post(
             `/admin/stock-locations`,
-            {
-              name: "test location",
-            },
+            { name: "test location" },
             adminHeaders
           )
         ).data.stock_location
 
-        shippingProfile = await fulfillmentModule.createShippingProfiles({
-          name: "Test",
-          type: "default",
-        })
+        await api.post(
+          `/admin/stock-locations/${stockLocation.id}/sales-channels`,
+          { add: [salesChannel.id] },
+          adminHeaders
+        )
 
-        fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-          name: "Test",
-          type: "test-type",
-          service_zones: [
+        const fulfillmentSets = (
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/fulfillment-sets?fields=*fulfillment_sets`,
+            {
+              name: "Test",
+              type: "test-type",
+            },
+            adminHeaders
+          )
+        ).data.stock_location.fulfillment_sets
+
+        fulfillmentSet = (
+          await api.post(
+            `/admin/fulfillment-sets/${fulfillmentSets[0].id}/service-zones`,
             {
               name: "Test",
               geo_zones: [
@@ -139,27 +143,9 @@ medusaIntegrationTestRunner({
                 { type: "country", country_code: "dk" },
               ],
             },
-          ],
-        })
-
-        await remoteLinkService.create([
-          {
-            [Modules.SALES_CHANNEL]: {
-              sales_channel_id: salesChannel.id,
-            },
-            [Modules.STOCK_LOCATION]: {
-              stock_location_id: stockLocation.id,
-            },
-          },
-          {
-            [Modules.STOCK_LOCATION]: {
-              stock_location_id: stockLocation.id,
-            },
-            [Modules.FULFILLMENT]: {
-              fulfillment_set_id: fulfillmentSet.id,
-            },
-          },
-        ])
+            adminHeaders
+          )
+        ).data.fulfillment_set
 
         await api.post(
           `/admin/stock-locations/${stockLocation.id}/fulfillment-providers`,
@@ -196,7 +182,7 @@ medusaIntegrationTestRunner({
                   rules: [
                     {
                       operator: "gt",
-                      attribute: "total",
+                      attribute: "item_total",
                       value: 2000,
                     },
                   ],
@@ -246,8 +232,11 @@ medusaIntegrationTestRunner({
             expect.objectContaining({
               id: shippingOption.id,
               name: "Test shipping option",
-              amount: 1100,
               price_type: "flat",
+              amount: 1100,
+              calculated_price: expect.objectContaining({
+                calculated_amount: 1100,
+              }),
             })
           )
 
@@ -272,8 +261,12 @@ medusaIntegrationTestRunner({
               id: shippingOption.id,
               name: "Test shipping option",
               amount: 500,
-              price_type: "flat",
               is_tax_inclusive: true,
+              calculated_price: expect.objectContaining({
+                calculated_amount: 500,
+                is_calculated_price_tax_inclusive: true,
+              }),
+              price_type: "flat",
             })
           )
         })
@@ -313,35 +306,12 @@ medusaIntegrationTestRunner({
               name: "Test shipping option",
               // Free shipping due to cart total being greater than 2000
               amount: 0,
+              calculated_price: expect.objectContaining({
+                calculated_amount: 0,
+              }),
               price_type: "flat",
             })
           )
-        })
-
-        it("should throw when required fields of a cart are not present", async () => {
-          cart = (
-            await api.post(
-              `/store/carts`,
-              {
-                region_id: region.id,
-                currency_code: "usd",
-                sales_channel_id: null,
-                email: "test@admin.com",
-                items: [],
-              },
-              storeHeaders
-            )
-          ).data.cart
-
-          const { response } = await api
-            .get(`/store/shipping-options?cart_id=${cart.id}`, storeHeaders)
-            .catch((e) => e)
-
-          expect(response.data).toEqual({
-            type: "invalid_data",
-            message:
-              "Field(s) are required to have value to continue - sales_channel_id",
-          })
         })
 
         it("should throw error when cart_id is not passed as a parameter", async () => {

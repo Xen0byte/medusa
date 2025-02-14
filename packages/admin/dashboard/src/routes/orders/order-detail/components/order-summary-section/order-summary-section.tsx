@@ -1,6 +1,6 @@
 import { ReactNode, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import {
   ArrowDownRightMini,
@@ -18,6 +18,7 @@ import {
   AdminOrder,
   AdminOrderLineItem,
   AdminOrderPreview,
+  AdminPaymentCollection,
   AdminRegion,
   AdminReturn,
 } from "@medusajs/types"
@@ -36,9 +37,7 @@ import {
 } from "@medusajs/ui"
 
 import { AdminReservation } from "@medusajs/types/src/http"
-import { AdminPaymentCollection } from "../../../../../../../../core/types/dist/http/payment/admin/entities"
 import { ActionMenu } from "../../../../../components/common/action-menu"
-import { ButtonMenu } from "../../../../../components/common/button-menu/button-menu"
 import { Thumbnail } from "../../../../../components/common/thumbnail"
 import { useClaims } from "../../../../../hooks/api/claims"
 import { useExchanges } from "../../../../../hooks/api/exchanges"
@@ -51,6 +50,7 @@ import { formatCurrency } from "../../../../../lib/format-currency"
 import {
   getLocaleAmount,
   getStylizedAmount,
+  isAmountLessThenRoundingError,
 } from "../../../../../lib/money-amount-helpers"
 import { getTotalCaptured } from "../../../../../lib/payment"
 import { getReturnableQuantity } from "../../../../../lib/rma"
@@ -126,9 +126,16 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
     unpaidPaymentCollection?.id!
   )
 
+  const pendingDifference = order.summary?.pending_difference || 0
+  const isAmountSignificant = !isAmountLessThenRoundingError(
+    pendingDifference,
+    order.currency_code
+  )
+
   const showPayment =
-    unpaidPaymentCollection && (order?.summary?.pending_difference || 0) > 0
-  const showRefund = (order?.summary?.pending_difference || 0) < 0
+    unpaidPaymentCollection && pendingDifference > 0 && isAmountSignificant
+  const showRefund =
+    unpaidPaymentCollection && pendingDifference < 0 && isAmountSignificant
 
   const handleMarkAsPaid = async (
     paymentCollection: AdminPaymentCollection
@@ -181,19 +188,15 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
         <div className="bg-ui-bg-subtle flex items-center justify-end gap-x-2 rounded-b-xl px-4 py-4">
           {showReturns &&
             (receivableReturns.length === 1 ? (
-              <Button
-                onClick={() =>
-                  navigate(
-                    `/orders/${order.id}/returns/${receivableReturns[0].id}/receive`
-                  )
-                }
-                variant="secondary"
-                size="small"
-              >
-                {t("orders.returns.receive.action")}
+              <Button asChild variant="secondary" size="small">
+                <Link
+                  to={`/orders/${order.id}/returns/${receivableReturns[0].id}/receive`}
+                >
+                  {t("orders.returns.receive.action")}
+                </Link>
               </Button>
             ) : (
-              <ButtonMenu
+              <ActionMenu
                 groups={[
                   {
                     actions: receivableReturns.map((r) => {
@@ -225,15 +228,14 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
                 <Button variant="secondary" size="small">
                   {t("orders.returns.receive.action")}
                 </Button>
-              </ButtonMenu>
+              </ActionMenu>
             ))}
 
           {showAllocateButton && (
-            <Button
-              onClick={() => navigate(`./allocate-items`)}
-              variant="secondary"
-            >
-              {t("orders.allocateItems.action")}
+            <Button asChild variant="secondary" size="small">
+              <Link to="allocate-items">
+                {t("orders.allocateItems.action")}
+              </Link>
             </Button>
           )}
 
@@ -255,17 +257,15 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
           )}
 
           {showRefund && (
-            <Button
-              size="small"
-              variant="secondary"
-              onClick={() => navigate(`/orders/${order.id}/refund`)}
-            >
-              {t("orders.payment.refundAmount", {
-                amount: getStylizedAmount(
-                  (order?.summary?.pending_difference || 0) * -1,
-                  order?.currency_code
-                ),
-              })}
+            <Button size="small" variant="secondary" asChild>
+              <Link to={`/orders/${order.id}/refund`}>
+                {t("orders.payment.refundAmount", {
+                  amount: getStylizedAmount(
+                    pendingDifference * -1,
+                    order?.currency_code
+                  ),
+                })}
+              </Link>
             </Button>
           )}
         </div>
@@ -310,6 +310,7 @@ const Header = ({
                 to: `/orders/${order.id}/edits`,
                 icon: <PencilSquare />,
                 disabled:
+                  order.status === "canceled" ||
                   (orderPreview?.order_change &&
                     orderPreview?.order_change?.change_type !== "edit") ||
                   (orderPreview?.order_change?.change_type === "edit" &&

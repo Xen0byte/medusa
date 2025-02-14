@@ -24,7 +24,7 @@ describe("Entity builder", () => {
       fieldName: "created_at",
       nullable: false,
       onCreate: expect.any(Function),
-      reference: "scalar",
+      kind: "scalar",
       setter: false,
       type: "date",
     },
@@ -34,7 +34,7 @@ describe("Entity builder", () => {
       name: "deleted_at",
       fieldName: "deleted_at",
       nullable: true,
-      reference: "scalar",
+      kind: "scalar",
       setter: false,
       type: "date",
     },
@@ -47,7 +47,7 @@ describe("Entity builder", () => {
       nullable: false,
       onCreate: expect.any(Function),
       onUpdate: expect.any(Function),
-      reference: "scalar",
+      kind: "scalar",
       setter: false,
       type: "date",
     },
@@ -98,6 +98,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -108,7 +112,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -118,7 +122,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -128,7 +132,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -138,7 +142,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -155,10 +159,11 @@ describe("Entity builder", () => {
           name: "spend_limit",
           fieldName: "spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: true,
           trackChanges: false,
           type: "any",
+          runtimeType: "any",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -166,7 +171,7 @@ describe("Entity builder", () => {
           name: "raw_spend_limit",
           fieldName: "raw_spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "any",
         },
@@ -175,12 +180,12 @@ describe("Entity builder", () => {
           name: "phones",
           fieldName: "phones",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: ArrayType,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -193,7 +198,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -237,6 +242,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -247,7 +256,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -257,7 +266,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -267,7 +276,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -277,7 +286,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -294,10 +303,11 @@ describe("Entity builder", () => {
           name: "spend_limit",
           fieldName: "spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: true,
           trackChanges: false,
           type: "any",
+          runtimeType: "any",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -305,12 +315,12 @@ describe("Entity builder", () => {
           name: "raw_spend_limit",
           fieldName: "raw_spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "any",
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -323,7 +333,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -367,6 +377,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("UserRole")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_UserRole: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_UserRole",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -377,7 +391,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -387,7 +401,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -397,7 +411,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -407,7 +421,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -424,10 +438,11 @@ describe("Entity builder", () => {
           name: "spend_limit",
           fieldName: "spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: true,
           trackChanges: false,
           type: "any",
+          runtimeType: "any",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -435,12 +450,12 @@ describe("Entity builder", () => {
           name: "raw_spend_limit",
           fieldName: "raw_spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "any",
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -453,7 +468,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -486,6 +501,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -496,7 +515,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -506,7 +525,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           default: "foo",
           columnType: "text",
@@ -517,7 +536,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -533,10 +552,11 @@ describe("Entity builder", () => {
           name: "spend_limit",
           fieldName: "spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: true,
           trackChanges: false,
           type: "any",
+          runtimeType: "any",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -544,12 +564,12 @@ describe("Entity builder", () => {
           name: "raw_spend_limit",
           fieldName: "raw_spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "any",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -561,7 +581,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -574,7 +594,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -627,6 +647,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -637,7 +661,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -647,7 +671,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -658,7 +682,7 @@ describe("Entity builder", () => {
           searchable: true,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -674,10 +698,11 @@ describe("Entity builder", () => {
           name: "spend_limit",
           fieldName: "spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: true,
           trackChanges: false,
           type: "any",
+          runtimeType: "any",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -685,12 +710,12 @@ describe("Entity builder", () => {
           name: "raw_spend_limit",
           fieldName: "raw_spend_limit",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "any",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -702,7 +727,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -715,7 +740,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -771,6 +796,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -781,7 +810,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -791,7 +820,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -801,7 +830,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -816,7 +845,7 @@ describe("Entity builder", () => {
           name: "raw_spend_limit",
           fieldName: "raw_spend_limit",
           nullable: true,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "any",
         },
@@ -826,13 +855,14 @@ describe("Entity builder", () => {
           name: "spend_limit",
           fieldName: "spend_limit",
           nullable: true,
-          reference: "scalar",
+          kind: "scalar",
           setter: true,
           trackChanges: false,
           type: "any",
+          runtimeType: "any",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -844,7 +874,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -857,7 +887,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -892,6 +922,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -902,7 +936,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -912,7 +946,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -922,7 +956,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -932,7 +966,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         role: {
-          reference: "scalar",
+          kind: "scalar",
           enum: true,
           items: expect.any(Function),
           nullable: false,
@@ -941,7 +975,7 @@ describe("Entity builder", () => {
           type: "string",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -953,7 +987,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -966,7 +1000,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1009,6 +1043,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1019,7 +1057,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -1029,7 +1067,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1039,7 +1077,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1049,7 +1087,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         role: {
-          reference: "scalar",
+          kind: "scalar",
           enum: true,
           default: "guest",
           items: expect.any(Function),
@@ -1059,7 +1097,7 @@ describe("Entity builder", () => {
           type: "string",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1071,7 +1109,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1084,7 +1122,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1130,6 +1168,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1140,7 +1182,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -1150,7 +1192,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1160,7 +1202,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1170,7 +1212,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         role: {
-          reference: "scalar",
+          kind: "scalar",
           enum: true,
           items: expect.any(Function),
           nullable: true,
@@ -1179,7 +1221,7 @@ describe("Entity builder", () => {
           type: "string",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1191,7 +1233,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1204,7 +1246,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1271,6 +1313,10 @@ describe("Entity builder", () => {
       expect(metaData.tableName).toEqual("public.user")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1281,7 +1327,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -1291,7 +1337,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1301,7 +1347,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1311,7 +1357,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1323,7 +1369,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1336,7 +1382,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1373,6 +1419,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1383,7 +1433,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -1393,7 +1443,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1403,7 +1453,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1419,14 +1469,14 @@ describe("Entity builder", () => {
           name: "phones",
           fieldName: "phones",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           default: JSON.stringify({ number: "22222222" }),
           setter: false,
           columnType: "jsonb",
           type: "any",
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1439,7 +1489,100 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
+          type: "date",
+          columnType: "timestamptz",
+          name: "deleted_at",
+          fieldName: "deleted_at",
+          nullable: true,
+          getter: false,
+          setter: false,
+        },
+      })
+    })
+
+    test("define a float property", () => {
+      const tax = model.define("tax", {
+        id: model.number(),
+        rate: model.float(),
+      })
+
+      expect(tax.name).toEqual("Tax")
+      expect(tax.parse().tableName).toEqual("tax")
+
+      const Tax = toMikroORMEntity(tax)
+      expectTypeOf(new Tax()).toMatchTypeOf<{
+        id: number
+        rate: number
+      }>()
+
+      const metaData = MetadataStorage.getMetadataFromDecorator(Tax)
+      expect(metaData.className).toEqual("Tax")
+      expect(metaData.path).toEqual("Tax")
+
+      expect(metaData.filters).toEqual({
+        freeTextSearch_Tax: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_Tax",
+        },
+        softDeletable: {
+          name: "softDeletable",
+          cond: expect.any(Function),
+          default: true,
+          args: false,
+        },
+      })
+
+      expect(metaData.properties).toEqual({
+        id: {
+          kind: "scalar",
+          type: "number",
+          columnType: "integer",
+          name: "id",
+          fieldName: "id",
+          nullable: false,
+          getter: false,
+          setter: false,
+        },
+        rate: {
+          kind: "scalar",
+          type: "number",
+          runtimeType: "number",
+          columnType: "real",
+          name: "rate",
+          fieldName: "rate",
+          serializer: expect.any(Function),
+          nullable: false,
+          getter: false,
+          setter: false,
+        },
+        created_at: {
+          kind: "scalar",
+          type: "date",
+          columnType: "timestamptz",
+          name: "created_at",
+          fieldName: "created_at",
+          defaultRaw: "now()",
+          onCreate: expect.any(Function),
+          nullable: false,
+          getter: false,
+          setter: false,
+        },
+        updated_at: {
+          kind: "scalar",
+          type: "date",
+          columnType: "timestamptz",
+          name: "updated_at",
+          fieldName: "updated_at",
+          defaultRaw: "now()",
+          onCreate: expect.any(Function),
+          onUpdate: expect.any(Function),
+          nullable: false,
+          getter: false,
+          setter: false,
+        },
+        deleted_at: {
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1478,6 +1621,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1488,7 +1635,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -1498,7 +1645,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1513,11 +1660,11 @@ describe("Entity builder", () => {
           mappedBy: "user",
           name: "emails",
           orphanRemoval: true,
-          reference: "1:m",
+          kind: "1:m",
           searchable: true,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1529,7 +1676,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1542,7 +1689,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1586,6 +1733,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1596,7 +1747,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "id",
@@ -1606,7 +1757,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1616,7 +1767,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1626,7 +1777,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1638,7 +1789,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1651,7 +1802,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1696,6 +1847,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1706,7 +1861,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "id",
@@ -1715,7 +1870,7 @@ describe("Entity builder", () => {
           primary: true,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1725,7 +1880,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1735,7 +1890,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1747,7 +1902,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1760,7 +1915,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1807,6 +1962,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1817,7 +1976,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "id",
@@ -1826,7 +1985,7 @@ describe("Entity builder", () => {
           primary: true,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1836,7 +1995,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1846,7 +2005,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -1858,7 +2017,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -1871,7 +2030,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -1904,7 +2063,7 @@ describe("Entity builder", () => {
         name: "id",
         fieldName: "id",
         nullable: false,
-        reference: "scalar",
+        kind: "scalar",
         type: "string",
         primary: true,
       })
@@ -1913,7 +2072,7 @@ describe("Entity builder", () => {
         name: "email",
         fieldName: "email",
         nullable: false,
-        reference: "scalar",
+        kind: "scalar",
         type: "string",
         primary: true,
       })
@@ -1959,6 +2118,10 @@ describe("Entity builder", () => {
       ])
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1969,7 +2132,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -1979,7 +2142,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -1989,7 +2152,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -1999,7 +2162,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2011,7 +2174,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2024,7 +2187,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2075,6 +2238,10 @@ describe("Entity builder", () => {
       ])
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -2085,7 +2252,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2095,7 +2262,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2105,7 +2272,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -2115,7 +2282,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2127,7 +2294,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2140,7 +2307,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2190,6 +2357,10 @@ describe("Entity builder", () => {
       ])
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -2200,7 +2371,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2210,7 +2381,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2220,7 +2391,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         myEmail: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "myEmail",
@@ -2230,7 +2401,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2242,7 +2413,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2255,7 +2426,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2303,7 +2474,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2313,7 +2484,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2323,14 +2494,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2342,7 +2512,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2355,7 +2525,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2397,7 +2567,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2407,7 +2577,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2417,14 +2587,14 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:1",
+          kind: "1:1",
           name: "emails",
           entity: "Email",
           nullable: true,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2436,7 +2606,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2449,7 +2619,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2485,7 +2655,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2495,7 +2665,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2505,13 +2675,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
+          onDelete: undefined,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2523,7 +2693,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2536,7 +2706,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2572,7 +2742,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2582,7 +2752,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2592,14 +2762,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "owner",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2611,7 +2780,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2624,7 +2793,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2664,7 +2833,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2674,7 +2843,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2684,16 +2853,15 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
           cascade: ["persist", "soft-remove"],
-          onDelete: "cascade",
+          deleteRule: "cascade",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2705,7 +2873,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2718,7 +2886,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2735,7 +2903,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -2745,7 +2913,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -2755,7 +2923,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2767,7 +2935,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2780,7 +2948,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2828,7 +2996,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -2838,7 +3006,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -2848,16 +3016,14 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
-          cascade: ["persist", "soft-remove"],
-          onDelete: "cascade",
+          deleteRule: "cascade",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2869,7 +3035,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2882,7 +3048,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -2899,7 +3065,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -2909,7 +3075,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -2924,10 +3090,11 @@ describe("Entity builder", () => {
           mappedBy: "email",
           name: "user",
           nullable: false,
-          onDelete: "cascade",
+          deleteRule: "cascade",
           owner: true,
-          reference: "1:1",
+          kind: "1:1",
           cascade: ["persist", "soft-remove"],
+          unique: false,
         },
         user_id: {
           columnType: "text",
@@ -2935,12 +3102,13 @@ describe("Entity builder", () => {
           persist: false,
           name: "user_id",
           nullable: false,
-          reference: "scalar",
+          formula: expect.any(Function),
+          kind: "scalar",
           setter: false,
           type: "string",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -2952,7 +3120,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -2965,7 +3133,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3017,7 +3185,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -3027,7 +3195,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -3037,23 +3205,25 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
+          fieldName: "email_id",
+          unique: false,
         },
         email_id: {
           columnType: "text",
           type: "string",
-          reference: "scalar",
+          kind: "scalar",
           name: "email_id",
+          formula: expect.any(Function),
           nullable: false,
-          persist: true,
+          persist: false,
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3065,7 +3235,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3078,7 +3248,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3127,7 +3297,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -3137,7 +3307,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -3147,23 +3317,26 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:1",
+          kind: "1:1",
           name: "emails",
           entity: "Email",
           nullable: true,
+          fieldName: "emails_id",
+          unique: false,
         },
         emails_id: {
           columnType: "text",
           type: "string",
-          reference: "scalar",
+          kind: "scalar",
           name: "emails_id",
+          formula: expect.any(Function),
           nullable: true,
-          persist: true,
+          persist: false,
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3175,7 +3348,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3188,7 +3361,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3228,7 +3401,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -3238,7 +3411,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -3248,24 +3421,26 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "owner",
+          fieldName: "email_id",
+          unique: false,
         },
         email_id: {
           columnType: "text",
           type: "string",
-          reference: "scalar",
+          kind: "scalar",
           name: "email_id",
+          formula: expect.any(Function),
           nullable: false,
-          persist: true,
+          persist: false,
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3277,7 +3452,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3290,7 +3465,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3333,7 +3508,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -3343,7 +3518,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -3353,25 +3528,27 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
+          fieldName: "email_id",
+          unique: false,
         },
         email_id: {
           columnType: "text",
           type: "string",
-          reference: "scalar",
+          kind: "scalar",
           name: "email_id",
+          formula: expect.any(Function),
           nullable: false,
-          persist: true,
+          persist: false,
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3383,7 +3560,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3396,7 +3573,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3413,7 +3590,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -3423,7 +3600,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -3433,7 +3610,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3445,7 +3622,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3458,7 +3635,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3509,7 +3686,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -3519,7 +3696,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -3529,25 +3706,27 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
+          fieldName: "email_id",
+          unique: false,
         },
         email_id: {
           columnType: "text",
           type: "string",
-          reference: "scalar",
+          kind: "scalar",
+          formula: expect.any(Function),
           name: "email_id",
           nullable: false,
-          persist: true,
+          persist: false,
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3559,7 +3738,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3572,7 +3751,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3589,7 +3768,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -3599,7 +3778,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -3613,24 +3792,26 @@ describe("Entity builder", () => {
           mappedBy: "email",
           name: "user",
           nullable: false,
-          onDelete: "cascade",
+          deleteRule: "cascade",
           owner: true,
-          reference: "1:1",
+          kind: "1:1",
           cascade: ["persist", "soft-remove"],
           fieldName: "user_id",
+          unique: false,
         },
         user_id: {
           columnType: "text",
           getter: false,
           name: "user_id",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
+          formula: expect.any(Function),
           setter: false,
           type: "string",
           persist: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -3642,7 +3823,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -3655,7 +3836,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -3705,7 +3886,7 @@ describe("Entity builder", () => {
 
       expect(metaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -3715,7 +3896,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         account: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "account",
@@ -3730,16 +3911,17 @@ describe("Entity builder", () => {
           name: "organization",
           fieldName: "organization",
           nullable: false,
-          reference: "scalar",
+          kind: "scalar",
           setter: false,
           type: "string",
         },
         group: {
           entity: "Group",
+          fieldName: "group_id",
           name: "group",
           nullable: false,
           persist: false,
-          reference: "m:1",
+          kind: "m:1",
         },
         group_id: {
           columnType: "text",
@@ -3749,7 +3931,7 @@ describe("Entity builder", () => {
           name: "group_id",
           nullable: false,
           onDelete: undefined,
-          reference: "m:1",
+          kind: "m:1",
         },
         ...defaultColumnMetadata,
       })
@@ -3950,8 +4132,8 @@ describe("Entity builder", () => {
       expect(settingMetadata.indexes).toEqual([
         {
           expression:
-            'CREATE INDEX IF NOT EXISTS "IDX_setting_user_id" ON "setting" (user_id) WHERE deleted_at IS NULL',
-          name: "IDX_setting_user_id",
+            'CREATE UNIQUE INDEX IF NOT EXISTS "IDX_setting_user_id_unique" ON "setting" (user_id) WHERE deleted_at IS NULL',
+          name: "IDX_setting_user_id_unique",
         },
         {
           expression:
@@ -3987,7 +4169,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -3997,7 +4179,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4007,14 +4189,14 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:m",
+          kind: "1:m",
           name: "emails",
           entity: "Email",
           orphanRemoval: true,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4026,7 +4208,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4039,7 +4221,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4078,7 +4260,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -4088,7 +4270,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4098,14 +4280,14 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:m",
+          kind: "1:m",
           name: "emails",
           entity: "Email",
           mappedBy: "the_user",
           orphanRemoval: true,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4117,7 +4299,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4130,7 +4312,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4170,7 +4352,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -4180,7 +4362,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4190,7 +4372,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:m",
+          kind: "1:m",
           name: "emails",
           entity: "Email",
           orphanRemoval: true,
@@ -4198,7 +4380,7 @@ describe("Entity builder", () => {
           cascade: ["persist", "soft-remove"],
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4210,7 +4392,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4223,7 +4405,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4265,7 +4447,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -4275,7 +4457,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4285,7 +4467,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:m",
+          kind: "1:m",
           name: "emails",
           entity: "Email",
           orphanRemoval: true,
@@ -4293,7 +4475,7 @@ describe("Entity builder", () => {
           cascade: ["persist", "soft-remove"],
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4305,7 +4487,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4318,7 +4500,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4334,7 +4516,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -4344,7 +4526,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -4355,23 +4537,24 @@ describe("Entity builder", () => {
         },
         user: {
           entity: "User",
+          fieldName: "user_id",
           name: "user",
           nullable: false,
           persist: false,
-          reference: "m:1",
+          kind: "m:1",
         },
         user_id: {
           columnType: "text",
           entity: "User",
-          fieldName: "user_id",
           mapToPk: true,
+          fieldName: "user_id",
           name: "user_id",
           nullable: false,
-          onDelete: "cascade",
-          reference: "m:1",
+          deleteRule: "cascade",
+          kind: "m:1",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4383,7 +4566,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4396,7 +4579,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4468,7 +4651,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -4478,7 +4661,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4488,14 +4671,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4507,7 +4689,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4520,7 +4702,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4536,7 +4718,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -4546,7 +4728,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -4558,17 +4740,19 @@ describe("Entity builder", () => {
         user: {
           name: "user",
           fieldName: "user_id",
-          reference: "1:1",
+          kind: "1:1",
           entity: "User",
           nullable: false,
           mappedBy: "email",
           onDelete: undefined,
           owner: true,
+          unique: false,
         },
         user_id: {
-          reference: "scalar",
+          kind: "scalar",
           persist: false,
           type: "string",
+          formula: expect.any(Function),
           columnType: "text",
           nullable: false,
           name: "user_id",
@@ -4576,7 +4760,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4588,7 +4772,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4601,7 +4785,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4629,7 +4813,7 @@ describe("Entity builder", () => {
       const User = toMikroORMEntity(user)
       const Email = toMikroORMEntity(email)
 
-      expectTypeOf(new User()).toMatchTypeOf<{
+      expectTypeOf(new User()).toEqualTypeOf<{
         id: number
         username: string
         email: {
@@ -4638,9 +4822,20 @@ describe("Entity builder", () => {
           user: {
             id: number
             username: string
-          } | null
+            email: any
+            created_at: Date
+            updated_at: Date
+            deleted_at: Date | null
+          }
+          created_at: Date
+          updated_at: Date
+          deleted_at: Date | null
+          user_id: string | null
         }
-      }>()
+        created_at: Date
+        updated_at: Date
+        deleted_at: Date | null
+      }>({} as any)
 
       const userInstance = new User()
       expectTypeOf<(typeof userInstance)["email"]["user_id"]>().toEqualTypeOf<
@@ -4656,6 +4851,11 @@ describe("Entity builder", () => {
           email: {
             email: string
             isVerified: boolean
+            user: any
+            created_at: Date
+            updated_at: Date
+            deleted_at: Date | null
+            user_id: string | null
           }
         } | null
       }>()
@@ -4666,7 +4866,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -4676,7 +4876,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4686,14 +4886,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4705,7 +4904,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4718,7 +4917,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4734,7 +4933,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -4744,7 +4943,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -4756,25 +4955,27 @@ describe("Entity builder", () => {
         user: {
           name: "user",
           fieldName: "user_id",
-          reference: "1:1",
+          kind: "1:1",
           entity: "User",
           nullable: true,
           onDelete: undefined,
           mappedBy: "email",
           owner: true,
+          unique: false,
         },
         user_id: {
-          reference: "scalar",
+          kind: "scalar",
           persist: false,
           type: "string",
           columnType: "text",
           nullable: true,
+          formula: expect.any(Function),
           name: "user_id",
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4786,7 +4987,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4799,7 +5000,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4858,7 +5059,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -4868,7 +5069,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -4878,14 +5079,14 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:m",
+          kind: "1:m",
           name: "emails",
           entity: "Email",
           mappedBy: "user",
           orphanRemoval: true,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4897,7 +5098,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4910,7 +5111,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -4926,7 +5127,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -4936,7 +5137,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -4947,14 +5148,15 @@ describe("Entity builder", () => {
         },
         user: {
           name: "user",
-          reference: "m:1",
+          kind: "m:1",
           entity: "User",
+          fieldName: "user_id",
           persist: false,
           nullable: false,
         },
         user_id: {
           name: "user_id",
-          reference: "m:1",
+          kind: "m:1",
           entity: "User",
           columnType: "text",
           mapToPk: true,
@@ -4962,7 +5164,7 @@ describe("Entity builder", () => {
           nullable: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -4974,7 +5176,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -4987,7 +5189,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5046,7 +5248,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -5056,7 +5258,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -5066,14 +5268,14 @@ describe("Entity builder", () => {
           setter: false,
         },
         emails: {
-          reference: "1:m",
+          kind: "1:m",
           name: "emails",
           entity: "Email",
           mappedBy: "user",
           orphanRemoval: true,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5085,7 +5287,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5098,7 +5300,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5114,7 +5316,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.path).toEqual("Email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -5124,7 +5326,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -5135,14 +5337,15 @@ describe("Entity builder", () => {
         },
         user: {
           name: "user",
-          reference: "m:1",
+          kind: "m:1",
+          fieldName: "user_id",
           entity: "User",
           persist: false,
           nullable: true,
         },
         user_id: {
           name: "user_id",
-          reference: "m:1",
+          kind: "m:1",
           entity: "User",
           columnType: "text",
           mapToPk: true,
@@ -5150,7 +5353,7 @@ describe("Entity builder", () => {
           nullable: true,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5162,7 +5365,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5175,7 +5378,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5185,23 +5388,6 @@ describe("Entity builder", () => {
           setter: false,
         },
       })
-    })
-
-    test("throw error when other side relationship is missing", () => {
-      const email = model.define("email", {
-        email: model.text(),
-        isVerified: model.boolean(),
-        user: model.belongsTo(() => user),
-      })
-
-      const user = model.define("user", {
-        id: model.number(),
-        username: model.text(),
-      })
-
-      expect(() => toMikroORMEntity(email)).toThrow(
-        'Missing property "email" on "User" entity. Make sure to define it as a relationship'
-      )
     })
 
     test("throw error when other side relationship is invalid", () => {
@@ -5299,7 +5485,7 @@ describe("Entity builder", () => {
       expect(metaData.tableName).toEqual("platform.user")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -5309,7 +5495,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -5319,14 +5505,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5338,7 +5523,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5351,7 +5536,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5368,7 +5553,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.tableName).toEqual("platform.email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -5378,7 +5563,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -5390,25 +5575,27 @@ describe("Entity builder", () => {
         user: {
           name: "user",
           fieldName: "user_id",
-          reference: "1:1",
+          kind: "1:1",
           entity: "User",
           nullable: false,
           mappedBy: "email",
           onDelete: undefined,
           owner: true,
+          unique: false,
         },
         user_id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           persist: false,
           columnType: "text",
+          formula: expect.any(Function),
           nullable: false,
           name: "user_id",
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5420,7 +5607,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5433,7 +5620,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5499,7 +5686,7 @@ describe("Entity builder", () => {
       expect(metaData.tableName).toEqual("public.user")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -5509,7 +5696,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -5519,14 +5706,13 @@ describe("Entity builder", () => {
           setter: false,
         },
         email: {
-          reference: "1:1",
+          kind: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5538,7 +5724,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5551,7 +5737,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5568,7 +5754,7 @@ describe("Entity builder", () => {
       expect(emailMetaData.tableName).toEqual("platform.email")
       expect(emailMetaData.properties).toEqual({
         email: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "email",
@@ -5578,7 +5764,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         isVerified: {
-          reference: "scalar",
+          kind: "scalar",
           type: "boolean",
           columnType: "boolean",
           name: "isVerified",
@@ -5590,25 +5776,27 @@ describe("Entity builder", () => {
         user: {
           name: "user",
           fieldName: "user_id",
-          reference: "1:1",
+          kind: "1:1",
           entity: "User",
           nullable: false,
           mappedBy: "email",
           onDelete: undefined,
           owner: true,
+          unique: false,
         },
         user_id: {
-          reference: "scalar",
+          kind: "scalar",
           persist: false,
           type: "string",
           columnType: "text",
           nullable: false,
+          formula: expect.any(Function),
           name: "user_id",
           getter: false,
           setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5620,7 +5808,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5633,7 +5821,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5676,7 +5864,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -5686,7 +5874,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -5697,14 +5885,15 @@ describe("Entity builder", () => {
         },
         parent: {
           name: "parent",
-          reference: "m:1",
+          fieldName: "parent_id",
+          kind: "m:1",
           entity: "User",
           persist: false,
           nullable: false,
         },
         parent_id: {
           name: "parent_id",
-          reference: "m:1",
+          kind: "m:1",
           entity: "User",
           columnType: "text",
           fieldName: "parent_id",
@@ -5718,10 +5907,10 @@ describe("Entity builder", () => {
           mappedBy: "parent",
           name: "children",
           orphanRemoval: true,
-          reference: "1:m",
+          kind: "1:m",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5733,7 +5922,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5746,7 +5935,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5789,7 +5978,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -5799,7 +5988,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -5812,17 +6001,19 @@ describe("Entity builder", () => {
           name: "parent",
           fieldName: "parent_id",
           mappedBy: "child",
-          reference: "1:1",
+          kind: "1:1",
           entity: "User",
           nullable: false,
           onDelete: undefined,
           owner: true,
+          unique: false,
         },
         parent_id: {
           name: "parent_id",
           type: "string",
           columnType: "text",
-          reference: "scalar",
+          kind: "scalar",
+          formula: expect.any(Function),
           persist: false,
           getter: false,
           setter: false,
@@ -5833,11 +6024,10 @@ describe("Entity builder", () => {
           entity: "User",
           mappedBy: "parent",
           name: "child",
-          nullable: false,
-          reference: "1:1",
+          kind: "1:1",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5849,7 +6039,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5862,7 +6052,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5925,7 +6115,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -5935,7 +6125,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -5945,7 +6135,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -5953,7 +6143,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -5965,7 +6155,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -5978,7 +6168,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -5994,7 +6184,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6004,7 +6194,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -6014,7 +6204,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           inversedBy: "teams",
           entity: "User",
@@ -6022,7 +6212,7 @@ describe("Entity builder", () => {
           pivotTable: "team_users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6034,7 +6224,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6047,7 +6237,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6106,7 +6296,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6116,7 +6306,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -6126,7 +6316,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -6134,7 +6324,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6146,7 +6336,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6159,7 +6349,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6175,7 +6365,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6185,7 +6375,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -6195,7 +6385,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "User",
           owner: true,
@@ -6203,7 +6393,7 @@ describe("Entity builder", () => {
           pivotTable: "team_users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6215,7 +6405,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6228,7 +6418,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6238,6 +6428,86 @@ describe("Entity builder", () => {
           setter: false,
         },
       })
+    })
+
+    test("should define onDelete cascade on pivot entity when applying detach cascade", () => {
+      const teamUser = model.define("teamUser", {
+        id: model.number(),
+        user: model.belongsTo(() => user, { mappedBy: "teams" }),
+        team: model.belongsTo(() => team, { mappedBy: "users" }),
+      })
+      const user = model
+        .define("user", {
+          id: model.number(),
+          username: model.text(),
+          teams: model.manyToMany(() => team, {
+            pivotEntity: () => teamUser,
+          }),
+        })
+        .cascades({
+          detach: ["teams"],
+        })
+
+      const team = model
+        .define("team", {
+          id: model.number(),
+          name: model.text(),
+          users: model.manyToMany(() => user, {
+            pivotEntity: () => teamUser,
+          }),
+        })
+        .cascades({
+          detach: ["users"],
+        })
+
+      type CascadeDetach = Parameters<(typeof team)["cascades"]>[0]["detach"]
+
+      expectTypeOf<CascadeDetach>().toEqualTypeOf<"users"[] | undefined>()
+
+      const [, , TeamUserEntity] = toMikroOrmEntities([user, team, teamUser])
+
+      const teamUserMetadata =
+        MetadataStorage.getMetadataFromDecorator(TeamUserEntity)
+      expect(teamUserMetadata.properties).toEqual(
+        expect.objectContaining({
+          user_id: {
+            kind: "scalar",
+            type: "string",
+            columnType: "text",
+            fieldName: "user_id",
+            nullable: false,
+            name: "user_id",
+            getter: false,
+            setter: false,
+          },
+          user: {
+            name: "user",
+            kind: "m:1",
+            entity: "User",
+            nullable: false,
+            persist: false,
+            deleteRule: "cascade",
+          },
+          team_id: {
+            kind: "scalar",
+            type: "string",
+            columnType: "text",
+            fieldName: "team_id",
+            nullable: false,
+            name: "team_id",
+            getter: false,
+            setter: false,
+          },
+          team: {
+            name: "team",
+            kind: "m:1",
+            entity: "Team",
+            nullable: false,
+            persist: false,
+            deleteRule: "cascade",
+          },
+        })
+      )
     })
 
     test("throw error when unable to locate relationship via mappedBy", () => {
@@ -6321,7 +6591,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6331,7 +6601,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -6341,7 +6611,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -6349,7 +6619,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6361,7 +6631,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6374,7 +6644,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6390,7 +6660,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6400,7 +6670,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -6410,7 +6680,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "User",
           owner: true,
@@ -6418,7 +6688,7 @@ describe("Entity builder", () => {
           inversedBy: "teams",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6430,7 +6700,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6443,7 +6713,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6502,7 +6772,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6512,7 +6782,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -6522,7 +6792,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -6530,7 +6800,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6542,7 +6812,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6555,7 +6825,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6571,7 +6841,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6581,7 +6851,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -6591,7 +6861,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "User",
           owner: true,
@@ -6599,7 +6869,7 @@ describe("Entity builder", () => {
           inversedBy: "teams",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6611,7 +6881,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6624,7 +6894,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6701,7 +6971,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6711,7 +6981,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -6721,7 +6991,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -6729,7 +6999,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         activeTeams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "activeTeams",
           entity: "Team",
           owner: false,
@@ -6737,7 +7007,7 @@ describe("Entity builder", () => {
           mappedBy: "activeTeamsUsers",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6749,7 +7019,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6762,7 +7032,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6778,7 +7048,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6788,7 +7058,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -6798,7 +7068,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "User",
           owner: true,
@@ -6806,7 +7076,7 @@ describe("Entity builder", () => {
           inversedBy: "teams",
         },
         activeTeamsUsers: {
-          reference: "m:n",
+          kind: "m:n",
           name: "activeTeamsUsers",
           entity: "User",
           owner: true,
@@ -6814,7 +7084,7 @@ describe("Entity builder", () => {
           inversedBy: "activeTeams",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6826,7 +7096,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6839,7 +7109,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6901,7 +7171,7 @@ describe("Entity builder", () => {
       expect(metaData.tableName).toEqual("platform.user")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6911,7 +7181,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -6921,7 +7191,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -6929,7 +7199,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -6941,7 +7211,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -6954,7 +7224,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -6971,7 +7241,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.tableName).toEqual("platform.team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -6981,7 +7251,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -6991,7 +7261,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "User",
           owner: true,
@@ -6999,7 +7269,7 @@ describe("Entity builder", () => {
           pivotTable: "platform.team_users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7011,7 +7281,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7024,7 +7294,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -7059,7 +7329,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("RandomUser")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -7069,7 +7339,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -7079,7 +7349,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "TeamSquad",
           owner: true,
@@ -7087,7 +7357,7 @@ describe("Entity builder", () => {
           inversedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7099,7 +7369,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7112,7 +7382,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -7128,7 +7398,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("TeamSquad")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -7138,7 +7408,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -7148,7 +7418,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "RandomUser",
           owner: false,
@@ -7156,7 +7426,7 @@ describe("Entity builder", () => {
           pivotTable: "random_user_team_squads",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7168,7 +7438,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7181,7 +7451,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -7243,7 +7513,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -7253,7 +7523,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -7263,7 +7533,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: true,
@@ -7271,7 +7541,7 @@ describe("Entity builder", () => {
           inversedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7283,7 +7553,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7296,7 +7566,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -7312,7 +7582,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -7322,7 +7592,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -7332,7 +7602,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           owner: false,
           entity: "User",
@@ -7340,7 +7610,7 @@ describe("Entity builder", () => {
           pivotTable: "users_teams",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7352,7 +7622,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7365,7 +7635,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -7436,7 +7706,7 @@ describe("Entity builder", () => {
 
       expect(squadMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           columnType: "integer",
           type: "number",
           nullable: false,
@@ -7447,42 +7717,40 @@ describe("Entity builder", () => {
         },
         user_id: {
           name: "user_id",
-          reference: "m:1",
-          entity: "User",
+          kind: "scalar",
           columnType: "text",
-          mapToPk: true,
           fieldName: "user_id",
+          getter: false,
+          setter: false,
           nullable: false,
+          type: "string",
         },
         user: {
-          reference: "scalar",
-          type: "User",
+          kind: "m:1",
+          entity: "User",
           persist: false,
           nullable: false,
           name: "user",
-          getter: false,
-          setter: false,
         },
         team_id: {
           name: "team_id",
-          reference: "m:1",
-          entity: "Team",
+          kind: "scalar",
           columnType: "text",
-          mapToPk: true,
           fieldName: "team_id",
           nullable: false,
+          getter: false,
+          setter: false,
+          type: "string",
         },
         team: {
-          reference: "scalar",
-          type: "Team",
+          kind: "m:1",
+          entity: "Team",
           persist: false,
           nullable: false,
           name: "team",
-          getter: false,
-          setter: false,
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           columnType: "timestamptz",
           type: "date",
           nullable: false,
@@ -7494,7 +7762,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           columnType: "timestamptz",
           type: "date",
           nullable: false,
@@ -7507,7 +7775,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           columnType: "timestamptz",
           type: "date",
           nullable: true,
@@ -7523,7 +7791,7 @@ describe("Entity builder", () => {
       expect(teamMetaData.path).toEqual("Team")
       expect(teamMetaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -7533,7 +7801,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         name: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "name",
@@ -7543,7 +7811,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         users: {
-          reference: "m:n",
+          kind: "m:n",
           name: "users",
           entity: "User",
           owner: true,
@@ -7551,7 +7819,7 @@ describe("Entity builder", () => {
           pivotEntity: "TeamUsers",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7563,7 +7831,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7576,7 +7844,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
@@ -7592,7 +7860,7 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
       expect(metaData.properties).toEqual({
         id: {
-          reference: "scalar",
+          kind: "scalar",
           type: "number",
           columnType: "integer",
           name: "id",
@@ -7602,7 +7870,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         username: {
-          reference: "scalar",
+          kind: "scalar",
           type: "string",
           columnType: "text",
           name: "username",
@@ -7612,7 +7880,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         teams: {
-          reference: "m:n",
+          kind: "m:n",
           name: "teams",
           entity: "Team",
           owner: false,
@@ -7620,7 +7888,7 @@ describe("Entity builder", () => {
           mappedBy: "users",
         },
         created_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "created_at",
@@ -7632,7 +7900,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         updated_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "updated_at",
@@ -7645,7 +7913,7 @@ describe("Entity builder", () => {
           setter: false,
         },
         deleted_at: {
-          reference: "scalar",
+          kind: "scalar",
           type: "date",
           columnType: "timestamptz",
           name: "deleted_at",
